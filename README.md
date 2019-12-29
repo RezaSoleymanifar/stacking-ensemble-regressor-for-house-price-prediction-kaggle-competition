@@ -43,7 +43,7 @@ This will generate a `predictions.csv` file in current directory and prints the 
 
 ### Model Description
 
-We use a stacking ensemble of random forest, extremely randomized trees, gradient boosted trees and a multilayer perceptron to predict the sales prices of homes in the dataset. The figure bellow can further explain how model works. Data is initially passed through preprocessing pipelines, that handle imputation of missing values, encoding categorical features and finally standardization of all features.
+We use a stacking ensemble of random forest, extremely randomized trees, gradient boosted trees and a multilayer perceptron to predict the sales prices of homes in the dataset. The figure bellow can further explain how the model works. Data is initially passed through preprocessing pipelines that handle imputation of missing values, encoding categorical features and finally standardization of all features.
 
 Features are then projected onto a lower dimensional space using PCA and data is fed into above
 mentioned models. Each model generates its predicted labels and finally a linear regressor is trained to map these predictions onto the final labels. This practice--training a model on top of an ensemble, to aggregate the results of base models--is known as stacking.
