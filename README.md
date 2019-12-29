@@ -23,7 +23,8 @@ pip install -r requirements.txt
 ### Model Description
 
 
-<a href="http://tensorlayer.readthedocs.io">
+
+<!--- <a href="http://tensorlayer.readthedocs.io">--->
 <div align="center">
 	<img src="img/model.jpeg" width="20%" height="10%"/>
 </div>
