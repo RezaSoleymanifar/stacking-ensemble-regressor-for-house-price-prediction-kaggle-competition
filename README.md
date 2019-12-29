@@ -18,11 +18,6 @@ This project is run entirely on `scikit-learn`. To install required packages run
 pip install -r requirements.txt
 ```
 
-
-```python
-config.TRAIN.img_path = "your_image_folder/"
-```
-
 - Start training.
 
 ```bash
