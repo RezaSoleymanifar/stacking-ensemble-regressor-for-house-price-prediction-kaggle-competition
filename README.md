@@ -4,7 +4,7 @@ This project runs a Machine Learning ensemble model to predict house sale prices
 [here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data). If you have `kaggle` installed you can simply run:
 
 ```bash
-https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+kaggle competitions download -c house-prices-advanced-regression-techniques
 ```
 
 To clone the project use:
@@ -26,16 +26,20 @@ config.TRAIN.img_path = "your_image_folder/"
 - Start training.
 
 ```bash
-python train.py
+python train.py --file='csv_file_path'
 ```
+
+Note this replaces the pretrained pipeline `pipeline_full.pkl`.
 
 - Start evaluation. 
 
 <!--([pretrained model](https://github.com/tensorlayer/srgan/releases/tag/1.2.0) for DIV2K)-->
 
 ```bash
-python train.py --mode=evaluate 
+python predict.py --file='csv_file_path' 
 ```
+
+This will generate a `predictions.csv` file in current directory and prints the resulting RMSLE.
 
 ### Model Description
 
