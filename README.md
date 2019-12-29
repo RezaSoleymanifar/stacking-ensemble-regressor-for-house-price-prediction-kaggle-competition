@@ -12,7 +12,7 @@ To clone the project use:
 git clone https://github.com/RezaSoleymanifar/House-Prices-Advanced-Regression-Techniques-Kaggle-Competition..git
 ```
 
-This project is run entirely on `scikit-learn`. To install required packages run:
+This project is run entirely on [scikit-learn](https://scikit-learn.org/stable/). To install required packages run:
 
 ```bash
 pip install -r requirements.txt
