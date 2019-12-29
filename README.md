@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 ### Model Description
 
-We use an ensemble of random forest, extremely randomized trees, gradient boosted trees and a multilayer perceptron with two hidden layers to predict the sales prices of homes
+We use a stacking ensemble of random forest, extremely randomized trees, gradient boosted trees and a multilayer perceptron with two hidden layers to predict the sales prices of homes
 in the dataset. The figure bellow can further explain how model works. Data is initially passed through preprocessing pipelines, that handle imputation of missing values,
 encoding categorical features and finally standardization of all features. Features are then projected into a lower dimensional space using PCA and data is fed into above
 mentioned models. Each model generates its predicted labels and finally a linear regressor is trained to map these predictions into the final labels. This practice--training a
@@ -34,33 +34,90 @@ model on top of an ensemble to aggregate the results of base models is known sta
 </a>
 
 
-### Results
 
-<a href="http://tensorlayer.readthedocs.io">
-<div align="center">
-	<img src="img/SRGAN_Result2.png" width="80%" height="50%"/>
-</div>
-</a>
-
-<a href="http://tensorlayer.readthedocs.io">
-<div align="center">
-	<img src="img/SRGAN_Result3.png" width="80%" height="50%"/>
-</div>
-</a>
-
-### Prepare Data and Pre-trained VGG
-
-- 1. You need to download the pretrained VGG19 model in [here](https://mega.nz/#!xZ8glS6J!MAnE91ND_WyfZ_8mvkuSa2YcA7q-1ehfSm-Q1fxOvvs) as [tutorial_vgg19.py](https://github.com/zsdonghao/tensorlayer/blob/master/example/tutorial_vgg19.py) show.
-- 2. You need to have the high resolution images for training.
-  -  In this experiment, I used images from [DIV2K - bicubic downscaling x4 competition](http://www.vision.ee.ethz.ch/ntire17/), so the hyper-paremeters in `config.py` (like number of epochs) are seleted basic on that dataset, if you change a larger dataset you can reduce the number of epochs. 
-  -  If you dont want to use DIV2K dataset, you can also use [Yahoo MirFlickr25k](http://press.liacs.nl/mirflickr/mirdownload.html), just simply download it using `train_hr_imgs = tl.files.load_flickr25k_dataset(tag=None)` in `main.py`. 
-  -  If you want to use your own images, you can set the path to your image folder via `config.TRAIN.hr_img_path` in `config.py`.
+### Data Description
 
 
-
-### Run
-- Set your image folder in `config.py`, if you download [DIV2K - bicubic downscaling x4 competition](http://www.vision.ee.ethz.ch/ntire17/) dataset, you don't need to change it. 
-- Other links for DIV2K, in case you can't find it : [test\_LR\_bicubic_X4](https://data.vision.ee.ethz.ch/cvl/DIV2K/validation_release/DIV2K_test_LR_bicubic_X4.zip), [train_HR](https://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_HR.zip), [train\_LR\_bicubic_X4](https://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_LR_bicubic_X4.zip), [valid_HR](https://data.vision.ee.ethz.ch/cvl/DIV2K/validation_release/DIV2K_valid_HR.zip), [valid\_LR\_bicubic_X4](https://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_valid_LR_bicubic_X4.zip).
+- SalePrice - the property's sale price in dollars. This is the target variable that you're trying to predict.
+- MSSubClass: The building class
+MSZoning: The general zoning classification
+LotFrontage: Linear feet of street connected to property
+LotArea: Lot size in square feet
+Street: Type of road access
+Alley: Type of alley access
+LotShape: General shape of property
+LandContour: Flatness of the property
+Utilities: Type of utilities available
+LotConfig: Lot configuration
+LandSlope: Slope of property
+Neighborhood: Physical locations within Ames city limits
+Condition1: Proximity to main road or railroad
+Condition2: Proximity to main road or railroad (if a second is present)
+BldgType: Type of dwelling
+HouseStyle: Style of dwelling
+OverallQual: Overall material and finish quality
+OverallCond: Overall condition rating
+YearBuilt: Original construction date
+YearRemodAdd: Remodel date
+RoofStyle: Type of roof
+RoofMatl: Roof material
+Exterior1st: Exterior covering on house
+Exterior2nd: Exterior covering on house (if more than one material)
+MasVnrType: Masonry veneer type
+MasVnrArea: Masonry veneer area in square feet
+ExterQual: Exterior material quality
+ExterCond: Present condition of the material on the exterior
+Foundation: Type of foundation
+BsmtQual: Height of the basement
+BsmtCond: General condition of the basement
+BsmtExposure: Walkout or garden level basement walls
+BsmtFinType1: Quality of basement finished area
+BsmtFinSF1: Type 1 finished square feet
+BsmtFinType2: Quality of second finished area (if present)
+BsmtFinSF2: Type 2 finished square feet
+BsmtUnfSF: Unfinished square feet of basement area
+TotalBsmtSF: Total square feet of basement area
+Heating: Type of heating
+HeatingQC: Heating quality and condition
+CentralAir: Central air conditioning
+Electrical: Electrical system
+1stFlrSF: First Floor square feet
+2ndFlrSF: Second floor square feet
+LowQualFinSF: Low quality finished square feet (all floors)
+GrLivArea: Above grade (ground) living area square feet
+BsmtFullBath: Basement full bathrooms
+BsmtHalfBath: Basement half bathrooms
+FullBath: Full bathrooms above grade
+HalfBath: Half baths above grade
+Bedroom: Number of bedrooms above basement level
+Kitchen: Number of kitchens
+KitchenQual: Kitchen quality
+TotRmsAbvGrd: Total rooms above grade (does not include bathrooms)
+Functional: Home functionality rating
+Fireplaces: Number of fireplaces
+FireplaceQu: Fireplace quality
+GarageType: Garage location
+GarageYrBlt: Year garage was built
+GarageFinish: Interior finish of the garage
+GarageCars: Size of garage in car capacity
+GarageArea: Size of garage in square feet
+GarageQual: Garage quality
+GarageCond: Garage condition
+PavedDrive: Paved driveway
+WoodDeckSF: Wood deck area in square feet
+OpenPorchSF: Open porch area in square feet
+EnclosedPorch: Enclosed porch area in square feet
+3SsnPorch: Three season porch area in square feet
+ScreenPorch: Screen porch area in square feet
+PoolArea: Pool area in square feet
+PoolQC: Pool quality
+Fence: Fence quality
+MiscFeature: Miscellaneous feature not covered in other categories
+MiscVal: $Value of miscellaneous feature
+MoSold: Month Sold
+YrSold: Year Sold
+SaleType: Type of sale
+SaleCondition: Condition of sale
 
 ```python
 config.TRAIN.img_path = "your_image_folder/"
@@ -79,39 +136,3 @@ python train.py
 ```bash
 python train.py --mode=evaluate 
 ```
-
-
-### Reference
-* [1] [Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)
-* [2] [Is the deconvolution layer the same as a convolutional layer ?](https://arxiv.org/abs/1609.07009)
-
-### Author
-- [zsdonghao](https://github.com/zsdonghao)
-
-### Citation
-If you find this project useful, we would be grateful if you cite the TensorLayer paper：
-
-```
-@article{tensorlayer2017,
-author = {Dong, Hao and Supratak, Akara and Mai, Luo and Liu, Fangde and Oehmichen, Axel and Yu, Simiao and Guo, Yike},
-journal = {ACM Multimedia},
-title = {{TensorLayer: A Versatile Library for Efficient Deep Learning Development}},
-url = {http://tensorlayer.org},
-year = {2017}
-}
-```
-
-### Other Projects
-
-- [Style Transfer](https://github.com/tensorlayer/adaptive-style-transfer)
-- [Pose Estimation](https://github.com/tensorlayer/openpose)
-
-### Discussion
-
-- [TensorLayer Slack](https://join.slack.com/t/tensorlayer/shared_invite/enQtMjUyMjczMzU2Njg4LWI0MWU0MDFkOWY2YjQ4YjVhMzI5M2VlZmE4YTNhNGY1NjZhMzUwMmQ2MTc0YWRjMjQzMjdjMTg2MWQ2ZWJhYzc)
-- [TensorLayer WeChat](https://github.com/tensorlayer/tensorlayer-chinese/blob/master/docs/wechat_group.md)
-
-### License
-
-- For academic and non-commercial use only.
-- For commercial use, please contact tensorlayer@gmail.com.
