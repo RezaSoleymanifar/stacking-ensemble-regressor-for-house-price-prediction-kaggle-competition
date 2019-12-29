@@ -22,8 +22,11 @@ pip install -r requirements.txt
 
 ### Model Description
 
-
-
+We use an ensemble of random forest, extremely randomized trees, gradient boosted trees and a multilayer perceptron with two hidden layers to predict the sales prices of homes
+in the dataset. The figure bellow can further explain how model works. Data is initially passed through preprocessing pipelines, that handle imputation of missing values,
+encoding categorical features and finally standardization of all features. Features are then projected into a lower dimensional space using PCA and data is fed into above
+mentioned models. Each model generates its predicted labels and finally a linear regressor is trained to map these predictions into the final labels. This practice--training a
+model on top of an ensemble to aggregate the results of base models is known stacking.
 <!--- <a href="http://tensorlayer.readthedocs.io">--->
 <div align="center">
 	<img src="img/model.jpeg" width="50%" height="10%"/>
