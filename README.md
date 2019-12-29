@@ -1,6 +1,11 @@
 ## Super Resolution Examples
 
 
+This project runs a Machine Learning ensemble model to predict house sale pries in Ames, Iowa. You can find the dataset 
+[here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data). If you have `kaggle` installed you can simply run
+```bash
+https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+```
 
 
 We run this script under [TensorFlow](https://www.tensorflow.org) 2.0 and the [TensorLayer](https://github.com/tensorlayer/tensorlayer) 2.0+. For TensorLayer 1.4 version, please check [release](https://github.com/tensorlayer/srgan/releases).
