@@ -1,30 +1,27 @@
-## Super Resolution Examples
-
+## House Prices Advanced Regression Techniques
 
 This project runs a Machine Learning ensemble model to predict house sale pries in Ames, Iowa. You can find the dataset 
 [here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data). If you have `kaggle` installed you can simply run
+
 ```bash
 https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
 ```
 
+To clone the project use:
+```bash
+git clone https://github.com/RezaSoleymanifar/House-Prices-Advanced-Regression-Techniques-Kaggle-Competition..git
+```
 
-We run this script under [TensorFlow](https://www.tensorflow.org) 2.0 and the [TensorLayer](https://github.com/tensorlayer/tensorlayer) 2.0+. For TensorLayer 1.4 version, please check [release](https://github.com/tensorlayer/srgan/releases).
+This project is done using `scikit-learn` only. To install required packages run:
 
-<!---
-⚠️ This repo will be merged into example folder of [tensorlayer](https://github.com/zsdonghao/tensorlayer) soon.
--->
-🚀🚀🚀🚀🚀🚀 **THIS PROJECT WILL BE CLOSED AND MOVED TO [THIS FOLDER](https://github.com/tensorlayer/tensorlayer/tree/master/examples) IN A MONTH.**
+```bash
+pip install -r requirements.txt
+```
 
-🚀🚀🚀🚀🚀🚀 **THIS PROJECT WILL BE CLOSED AND MOVED TO [THIS FOLDER](https://github.com/tensorlayer/tensorlayer/tree/master/examples) IN A MONTH.**
 
-🚀🚀🚀🚀🚀🚀 **THIS PROJECT WILL BE CLOSED AND MOVED TO [THIS FOLDER](https://github.com/tensorlayer/tensorlayer/tree/master/examples) IN A MONTH.**
 
-<!--More cool Computer Vision applications such as pose estimation and style transfer can be found in this [organization](https://github.com/tensorlayer).**
--->
+### Model Description
 
-### SRGAN Architecture
-
-TensorFlow Implementation of ["Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network"](https://arxiv.org/abs/1609.04802)
 
 <a href="http://tensorlayer.readthedocs.io">
 <div align="center">
