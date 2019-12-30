@@ -21,17 +21,17 @@ pip install -r requirements.txt
 - Start training.
 
 ```bash
-python train.py --file='csv_file_path'
+python train.py 'train_csv_file_path'
 ```
 
-Note this replaces the pretrained pipeline `pipeline_full.pkl`.
+Note this replaces the pretrained pipeline `pipeline_full.pkl`. Training and cross-validation is parallelized between all CPU cores. This can take several minutes depending on your system.
 
 - Start evaluation. 
 
 <!--([pretrained model](https://github.com/tensorlayer/srgan/releases/tag/1.2.0) for DIV2K)-->
 
 ```bash
-python predict.py --file='csv_file_path' 
+python predict.py 'test_csv_file_path' 
 ```
 
 This will generate a `predictions.csv` file in current directory and prints the resulting RMSLE.
