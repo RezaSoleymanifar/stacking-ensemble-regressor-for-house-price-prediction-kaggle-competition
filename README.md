@@ -1,7 +1,6 @@
 ## House Prices Advanced Regression Techniques Kaggle Competition
 
-This project runs a Machine Learning ensemble model to predict house sale prices in Ames, Iowa. You can find the dataset 
-[here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data). If you have `kaggle` installed you can simply run:
+This project runs a Machine Learning ensemble model to predict house sale prices in Ames, Iowa. You can find the dataset and the Kaggle competition [here](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data). If you have `kaggle` installed you can simply run:
 
 ```bash
 kaggle competitions download -c house-prices-advanced-regression-techniques
