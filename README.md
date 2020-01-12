@@ -9,7 +9,7 @@ kaggle competitions download -c house-prices-advanced-regression-techniques
 
 To clone the project use:
 ```bash
-git clone https://github.com/RezaSoleymanifar/House-Prices-Advanced-Regression-Techniques-Kaggle-Competition..git
+git clone https://github.com/RezaSoleymanifar/house-price-prediction-kaggle.git
 ```
 
 This project is run entirely on [scikit-learn](https://scikit-learn.org/stable/). To install required packages run:
